@@ -1,6 +1,8 @@
 import { browser, expect, $ } from '@wdio/globals'
 import LoginPage from '../pageobjects/login.page.js'
 import InventoryPage from '../pageobjects/inventory.page.js';
+import inventoryPage from '../pageobjects/inventory.page.js';
+import checkoutPage from '../pageobjects/checkout.page.js';
 
 
 
@@ -31,6 +33,9 @@ describe('Open All Items', () => {
             await InventoryPage.allItems();
     })
 })
+describe('open checkout page successfully', async () => {  
+            await inventoryPage.OpenCartIcon();
+    })
 // 
 
 describe('Open About', () => {
