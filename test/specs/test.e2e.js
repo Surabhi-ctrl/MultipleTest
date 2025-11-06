@@ -6,14 +6,14 @@ import checkoutPage from '../pageobjects/checkout.page.js';
 
 
 
-describe('My inventory page application', () => {
-    it('should open menu successfully', async () => {
+describe('inventory page navigation', () => {
+    it('should open inventory page successfully', async () => {
         await LoginPage.open();
         await LoginPage.login('standard_user', 'secret_sauce');
     })
 })
 
-describe('Open Reset App State', () => {
+describe('verify Reset App State functionality', () => {
         it('should clear all items from cart successfully', async () => { 
         await InventoryPage.addToCart();
         await InventoryPage.openHamburger();
@@ -21,9 +21,27 @@ describe('Open Reset App State', () => {
     })
 })
 
-describe('Open Cart', () => {
+describe('verify  Cart navigation ', () => {
         it('should open Cart  successfully', async () => {  
             await InventoryPage.openCart();
+    })
+})
+
+describe('verify remove button functionality', () => {
+        it('should remove item/items from cart successfully', async () => {  
+            await checkoutPage.continueShopping();
+            await inventoryPage.addToCart();
+            await inventoryPage.addToCart2();
+            await InventoryPage.openCart();
+            await checkoutPage.remove();
+            await checkoutPage.continueShopping();
+    })
+})
+
+describe('click remove button', () => {
+        it('should remove last item from cart successfully', async () => {  
+            await inventoryPage.remove2 ();
+            
     })
 })
 
@@ -33,10 +51,43 @@ describe('Open All Items', () => {
             await InventoryPage.allItems();
     })
 })
-describe('open checkout page successfully', async () => {  
-            await inventoryPage.OpenCartIcon();
+
+describe('continue shopping button navigation', () => {
+        it('should navigate to inventory page successfully', async () => {  
+            await InventoryPage.openCart();
+            await checkoutPage.continueShopping();
     })
-// 
+})
+
+
+
+describe('click on checkout button', () => {
+        it('should open your information page successfully', async () => {  
+            await InventoryPage.addToCart();
+            await InventoryPage.openCart();
+            await inventoryPage.checkout();
+
+    })
+})
+
+describe('verify checkout page elements', () => {
+        it('should verify the presesnce of header and footer on the your information page ', async () => {  
+            await checkoutPage.yourInformation();
+            
+
+    })
+})
+
+
+
+
+
+describe('Open checkout page successfully', () => {
+        it('Open checkout page successfully successfully', async () => {  
+            await inventoryPage.openCart();
+    })
+})
+
 
 describe('Open About', () => {
         it('should open About successfully', async () => {
