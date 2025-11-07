@@ -22,6 +22,8 @@ export const config = {
     //
     specs: [
         './test/specs/**/*.js'
+        // To run single file uncomment below line and update the filename accordingly
+        // './test/specs/checkout.e2e.js'
     ],
     // Patterns to exclude.
     exclude: [
